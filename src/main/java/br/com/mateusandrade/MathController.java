@@ -1,5 +1,4 @@
 package br.com.mateusandrade;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.RestController;
 import br.com.mateusandrade.exceptions.UnsupportedMathOperationException;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 public class MathController {
-  private final AtomicLong counter = new AtomicLong();
-  
   @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method=RequestMethod.GET)
   public Double sum(@PathVariable String numberOne, @PathVariable String numberTwo) throws Exception{
     if (!isNumeric(numberOne) || !isNumeric(numberTwo)){
